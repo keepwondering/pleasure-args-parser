@@ -1,3 +1,5 @@
+import camelCase from 'lodash/camelCase'
+
 /**
  * @function PleasureArgsParser
  * @param {String[]} [args=process.argv] - Arguments
@@ -20,7 +22,7 @@ export default function PleasureArgsParser (args = process.argv) {
   const res = {}
   let currentArg
   args.forEach(arg => {
-    const cleanArg = arg.replace(/^-+/, '')
+    const cleanArg = camelCase(arg.replace(/^-+/, '').replace(/=.*$/, ''))
 
     if (currentArg) {
       if (/^-/.test(arg)) {
@@ -34,8 +36,7 @@ export default function PleasureArgsParser (args = process.argv) {
 
     if (/^--/.test(arg)) {
       if (arg.indexOf('=') > 0) {
-        const [propName, value] = cleanArg.split('=')
-        res[propName] = value
+        res[cleanArg] = arg.split('=')[1]
       } else {
         currentArg = cleanArg
       }
