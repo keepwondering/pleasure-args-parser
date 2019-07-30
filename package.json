@@ -1,0 +1,24 @@
+{
+  "name": "pleasure-args-parser",
+  "author": "Martin Rafael <tin@devtin.io>",
+  "version": "1.0.0",
+  "main": "dist/pleasure-args-parser.js",
+  "module": "dist/pleasure-args-parser.esm.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "rollup -c",
+    "build:live": "nodemon -w src --exec yarn build",
+    "build:docs": "jsdoc2md --template README.hbs --files dist/pleasure-args-parser.js > README.md",
+    "test": "NODE_ENV=test ava --serial --verbose"
+  },
+  "devDependencies": {
+    "ava": "^2.2.0",
+    "jsdoc-to-markdown": "^5.0.0",
+    "nodemon": "^1.19.1",
+    "rollup": "^1.12.4",
+    "rollup-plugin-alias": "^1.5.1",
+    "rollup-plugin-babel-minify": "^8.0.0",
+    "rollup-plugin-commonjs": "^10.0.0",
+    "rollup-plugin-json": "^4.0.0"
+  }
+}
