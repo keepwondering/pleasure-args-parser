@@ -18,12 +18,12 @@ var camelCase = _interopDefault(require('lodash/camelCase'));
  *
  * ```js
  * const PleasureArgsParser = require('pleasure-args-parser')
- * const args = PleasureArgsParser(['--sandy=papo', '-papo', '--api', '--name', 'martin'])
+ * const args = PleasureArgsParser(['--sandy=papo', '-papo', '--api', '--first-name', 'martin'])
  * console.log(typeof args === 'object') // true
  * console.log(args.sandy === 'papo') // true
  * console.log(args.api) // true
  * console.log(args.papo) // true
- * console.log(args.name === 'martin') // true
+ * console.log(args.firstName === 'martin') // true
  * console.log(Object.keys(args).length === 4) // true
  * ```
  */
